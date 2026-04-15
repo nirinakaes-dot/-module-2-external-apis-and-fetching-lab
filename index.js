@@ -12,12 +12,12 @@ const weatherApi = "https://api.weather.gov/alerts/active?area={STATE ABBR}"
 
 //fetching
 
-async function fetchWeatherAlerts (state){ try
+async function fetchWeatherAlerts (stateabbr){ try
     {
-    const response = await fetch(weatherApi)
+    const response = await fetch(weatherApi + stateabbr )
 
     const data = await response.json()
-    console.log(data)
+    displayAlerts(data)
     
 
     catch(error){
@@ -34,7 +34,7 @@ async function fetchWeatherAlerts (state){ try
 
 //display Alerts
 function displayAlerts(data){
-    
+
     //clear display
     alertsDisplay.innerHTML = ""
 
