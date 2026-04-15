@@ -4,11 +4,14 @@ const weatherApi = "https://api.weather.gov/alerts/active?area=ohio"
 
 const state= document.querySelector('#state-input')
 
+//fetching
+
 async function fetchWeatherAlerts (state){ try
     {
     const response = await fetch(weatherApi)
 
     const data = await response.json()
+    console.log(data)
     
 
     catch(error){
@@ -18,23 +21,26 @@ async function fetchWeatherAlerts (state){ try
 }
 
 displayAlerts(data)
+//grab 
 
  const alertsDisplay = document.querySelector('#alerts-display')
  const fetchAlert = document.querySelector('#fetch-alerts')
  const errorMessage = document.querySelector('#error-message')
 
+ //add event listener
+
  fetchAlert.addEventListener('click', (displayAlerts)=> {
     displayAlerts.preventdefault()
  })
-
+//display 
 function displayAlerts(data){
     data.features.forEach(element => {
         
-        const li = document.createElement('li')
+        const divTag= document.createElement('div')
 
-        li.textContent = element.properties.headline
+        divTag.textContent = element.properties.headline
 
-        alertsDisplay.appendChild(li)
+        alertsDisplay.appendChild(divTag)
          
         
     });
