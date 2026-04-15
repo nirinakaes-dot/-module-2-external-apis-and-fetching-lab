@@ -1,5 +1,5 @@
 // index.js
-const weatherApi = "https://api.weather.gov/alerts/active?area="
+const weatherApi = "https://api.weather.gov/alerts/"
 // Your code here!
 
 
