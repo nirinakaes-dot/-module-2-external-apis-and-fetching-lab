@@ -29,6 +29,7 @@ async function fetchWeatherAlerts (stateabbr){ try
 
  fetchAlert.addEventListener('click', (event)=> {
     event.preventdefault()
+    displayAlerts(state.value)
 
  })
 
