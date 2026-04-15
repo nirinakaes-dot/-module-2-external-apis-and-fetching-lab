@@ -1,8 +1,14 @@
 // index.js
-const weatherApi = "https://api.weather.gov/alerts/active?area=ohio"
+const weatherApi = "https://api.weather.gov/alerts/active?area={STATE ABBR}"
 // Your code here!
 
-const state= document.querySelector('#state-input')
+
+///grab from html
+
+ const alertsDisplay = document.querySelector('#alerts-display')
+ const fetchAlert = document.querySelector('#fetch-alerts')
+ const errorMessage = document.querySelector('#error-message')
+ const state= document.querySelector('#state-input')
 
 //fetching
 
@@ -19,21 +25,19 @@ async function fetchWeatherAlerts (state){ try
     }
 }
 }
-
-displayAlerts(data)
-//grab 
-
- const alertsDisplay = document.querySelector('#alerts-display')
- const fetchAlert = document.querySelector('#fetch-alerts')
- const errorMessage = document.querySelector('#error-message')
-
  //add event listener
 
- fetchAlert.addEventListener('click', (displayAlerts)=> {
-    displayAlerts.preventdefault()
+ fetchAlert.addEventListener('click', (event)=> {
+    event.preventdefault()
+
  })
-//display 
+
+//display Alerts
 function displayAlerts(data){
+    
+    //clear display
+    alertsDisplay.innerHTML = ""
+
     data.features.forEach(element => {
         
         const divTag= document.createElement('div')
@@ -41,8 +45,7 @@ function displayAlerts(data){
         divTag.textContent = element.properties.headline
 
         alertsDisplay.appendChild(divTag)
-         
-        
+    
     });
     
 }
