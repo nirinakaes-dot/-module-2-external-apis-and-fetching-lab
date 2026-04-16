@@ -24,6 +24,7 @@ async function fetchWeatherAlerts(stateabbr) {
     } catch (error) {
         console.log(error)
     }
+    errorMessage.textContent =""
 }
 
 // add event listener
