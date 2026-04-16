@@ -19,6 +19,8 @@ async function fetchWeatherAlerts(stateabbr) {
         }
         const data = await response.json()
         displayAlerts(data)
+         state.value = ""
+
         state.value = ""
     } catch (error) {
         console.log(error)
@@ -29,7 +31,6 @@ async function fetchWeatherAlerts(stateabbr) {
 fetchAlert.addEventListener('click', (event) => {
     event.preventDefault()
     fetchWeatherAlerts(state.value)
-    state.value = ""
 })
 
 // display Alerts
