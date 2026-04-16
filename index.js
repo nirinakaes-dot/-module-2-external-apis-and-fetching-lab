@@ -21,11 +21,14 @@ async function fetchWeatherAlerts(stateabbr) {
         displayAlerts(data)
          state.value = ""
 
+         errorMessage.classList.add('hidden')
+    errorMessage.textContent =""
     } catch (error) {
         console.log(error)
     }
-    errorMessage.classList.add('hidden')
-    errorMessage.textContent =""
+    
+    errorMessage.textContent = error.message
+        errorMessage.classList.remove('hidden') 
 }
 
 // add event listener
