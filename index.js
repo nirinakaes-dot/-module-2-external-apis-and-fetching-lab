@@ -25,6 +25,7 @@ async function fetchWeatherAlerts(stateabbr) {
     errorMessage.textContent =""
     } catch (error) {
         console.log(error)
+        errorMessage.textContent = error.message
     }
     
 }
