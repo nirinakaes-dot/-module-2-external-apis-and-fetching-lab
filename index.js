@@ -27,7 +27,7 @@ async function fetchWeatherAlerts(stateabbr) {
         console.log(error)
     }
     
-    errorMessage.textContent = error.message
+    errorMessage.textContent = "error.message"
         errorMessage.classList.remove('hidden') 
 }
 
