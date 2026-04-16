@@ -21,7 +21,6 @@ async function fetchWeatherAlerts(stateabbr) {
         displayAlerts(data)
          state.value = ""
 
-        state.value = ""
     } catch (error) {
         console.log(error)
     }
