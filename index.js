@@ -25,10 +25,10 @@ async function fetchWeatherAlerts(stateabbr) {
     errorMessage.textContent =""
     } catch (error) {
         console.log(error)
+        errorMessage.textContent = error.message
+        errorMessage.classList.remove('hidden')
     }
     
-    errorMessage.textContent = error.message
-        errorMessage.classList.remove('hidden') 
 }
 
 // add event listener
@@ -53,7 +53,7 @@ function displayAlerts(data) {
     header.textContent = `Weather Alerts: ${data.features.length}`
 
     alertsDisplay.appendChild(header)
-    
+
     data.features.forEach(element => {
         const divTag = document.createElement('div')
         divTag.textContent = element.properties.headline
