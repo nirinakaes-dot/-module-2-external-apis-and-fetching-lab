@@ -19,6 +19,7 @@ async function fetchWeatherAlerts(stateabbr) {
         }
         const data = await response.json()
         displayAlerts(data)
+        state.value = ""
     } catch (error) {
         console.log(error)
     }
